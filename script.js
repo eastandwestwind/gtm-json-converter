@@ -69,18 +69,20 @@ var downloadData = function (type, data, filename) {
 function handleFileSelect(evt) {
     var files = evt.target.files; // FileList object
 
+    // check if file is json
+    
     // files is a FileList of File objects. List some properties.
     var output = [];
     for (var i = 0, f; f = files[i]; i++) {
-      output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+      output.push('<div id="fileStats"><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
                   f.size, ' bytes, last modified: ',
                   f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
-                  '</li>');
+                  '</div>');
 
     }
-    document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+    document.getElementById('list').innerHTML = '<div>' + output.join('') + '</div>';
     document.getElementById('options').innerHTML ='<input name="filename" id="filename" type="text" placeholder="GTM_Export"/><select class="selectpicker"><option>.xlsx</option><option>.csv</option></select>'
-    document.getElementById('parse').innerHTML = '<input id="parseButton" type="button" value="PARSE!"/>';
+    document.getElementById('parse').innerHTML = '<button id="parseButton" type="button">Download</button>';
 
     // begin parsing
     document.getElementById("parseButton").addEventListener("click", function() {

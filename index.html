@@ -2,21 +2,48 @@
 </head>
 
 <style type="text/css">
-#drop_zone{
-  border: 2px dashed #bbb;
+body{
+  padding-top: 50px;
+}
+input#files, div#fileStats, div#options{
+  padding-bottom: 30px;
+}
+button#parseButton {
+  width: 100px;
+  height: 30px;
+  border: 2px solid;
   border-radius: 5px;
-  padding: 25px;
-  text-align: center;
-  color: #bbb
+  background-color: #FB8C00;
+  border-color: #EF6C00;
+  font-size: 14px;
+  color: white;
+}
+button#parseButton:hover {
+    background-color: #EF6C00;
+    cursor: pointer;
+}
+#footer{
+  position: fixed;
+  z-index: 2;
+  bottom: 0px;
+  width: 100%;
+  padding: 10px 15px;
+  background-color: #f5f5f5;
+  border-top: 1px solid #ddd;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
 }
 </style>
 
-
+<center>
 <body>
   <input type="file" id="files" name="files[]" multiple />
   <output id="list"></output>
   <div id="options"></div>
   <div id="parse"></div>
+  <div id="footer">
+    This tool is free to use and <a href="https://github.com/eastandwestwind/gtm-json-converter">open source</a>
+  </div>
 
 </body>
 
