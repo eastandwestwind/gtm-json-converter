@@ -104,7 +104,7 @@ function handleFileSelect(evt) {
                 var folders = jsonData["containerVersion"]["folder"];
                 var folderMap = new Map();
                 for (var f = 0; f < folders.length; ++f){
-                    folderMap.set(f,folders[f]["name"]);
+                    folderMap.set(folders[f]["folderId"],folders[f]["name"]);
                 }
 
                 // init arrays of params
