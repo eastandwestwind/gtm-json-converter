@@ -69,15 +69,20 @@ var downloadData = function (type, data, filename) {
 function handleFileSelect(evt) {
     var files = evt.target.files; // FileList object
 
-    // check if file is json
-    
-    // files is a FileList of File objects. List some properties.
+    // Check if json then list some properties.
     var output = [];
+    var isJson = false;
     for (var i = 0, f; f = files[i]; i++) {
-      output.push('<div id="fileStats"><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
-                  f.size, ' bytes, last modified: ',
-                  f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
-                  '</div>');
+        if (f.name.indexOf("json") !== -1) {
+            output.push('<div id="fileStats"><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+                f.size, ' bytes, last modified: ',
+                f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+                '</div>');
+        }
+        else{
+            alert("File must be a valid GTM json export");
+            throw new Error ("File must be a valid GTM json export");
+        }
 
     }
     document.getElementById('list').innerHTML = '<div>' + output.join('') + '</div>';
