@@ -14,3 +14,5 @@ Each row chains together variables that are associated within GTM, e.g. triggers
 The UI allows you to select and download multiple files at once, but does not currently support separate naming for multiple files.
 
 Feel free to submit feature requests or pull requests to help build out this tool.
+
+Try it out! [catherine.work/gtm-json-converter](http://catherine.work/gtm-json-converter/)
